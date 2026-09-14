@@ -22,24 +22,6 @@ const projects = [
     className: 'project-kitchen',
     glyph: '🍋',
   },
-  {
-    kicker: 'notice → understand',
-    title: 'Voice for the Voiceless',
-    copy: 'A guide to helping community animals: what they need, who to call, and real rescue stories people can add themselves.',
-    href: 'https://voiceofthevoiceless.lovable.app',
-    cta: 'Explore the guide',
-    className: 'project-voice',
-    glyph: '🐾',
-  },
-  {
-    kicker: 'still growing!',
-    title: 'PetzPal',
-    copy: 'A small app for finding a vet or groomer and keeping a pet’s important records together. I am adding more useful helpers.',
-    href: 'https://petzpal-connect.lovable.app',
-    cta: 'Try PetzPal',
-    className: 'project-petzpal',
-    glyph: '✦',
-  },
 ];
 
 export default function Home() {
@@ -141,6 +123,67 @@ export default function Home() {
             alone. Could this be easier? Kinder? Less wasteful? More fun?
           </p>
           <div className="hello-bubble">hi! 👋</div>
+        </div>
+      </section>
+
+      <section className="animal-story" aria-labelledby="animal-story-title">
+        <div className="animal-story-heading">
+          <p>THE FILM DIDN&apos;T END AT THE CREDITS</p>
+          <h2 id="animal-story-title">I kept going.</h2>
+          <p>
+            First I wanted people to notice community animals. Then I wanted to
+            help people understand what to do. Then I built a way to act.
+          </p>
+        </div>
+
+        <div className="animal-path">
+          <div className="path-start">
+            <span>01</span>
+            <b>Through Their Eyes</b>
+            <small>notice</small>
+          </div>
+          <span className="path-arrow" aria-hidden="true">
+            →
+          </span>
+          <article className="animal-card voice-card">
+            <div>
+              <span>02 · UNDERSTAND</span>
+              <b aria-hidden="true">🐾</b>
+            </div>
+            <h3>Voice for the Voiceless</h3>
+            <p>
+              What a community animal needs, who to call, and rescue stories
+              people can add themselves.
+            </p>
+            <a
+              href="https://voiceofthevoiceless.lovable.app"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Explore the guide <ArrowUpRight aria-hidden="true" />
+            </a>
+          </article>
+          <span className="path-arrow" aria-hidden="true">
+            →
+          </span>
+          <article className="animal-card petzpal-card">
+            <div>
+              <span>03 · ACT</span>
+              <b aria-hidden="true">✦</b>
+            </div>
+            <h3>PetzPal</h3>
+            <p>
+              Find a vet or groomer and keep a pet&apos;s important records in
+              one place. Still growing, on purpose.
+            </p>
+            <a
+              href="https://petzpal-connect.lovable.app"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Try PetzPal <ArrowUpRight aria-hidden="true" />
+            </a>
+          </article>
         </div>
       </section>
 
