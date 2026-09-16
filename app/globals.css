@@ -867,6 +867,38 @@ a {
   text-decoration: none;
 }
 
+.closing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.chaos-button {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  padding: 16px 20px;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  background: var(--yellow);
+  box-shadow: 5px 6px 0 var(--ink);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.04em;
+}
+
+.chaos-button:hover {
+  box-shadow: 2px 3px 0 var(--ink);
+  transform: translate(3px, 3px);
+}
+
+.chaos-button svg {
+  width: 19px;
+}
+
 .contact-link:hover {
   box-shadow: 2px 3px 0 var(--ink);
   transform: translate(3px, 3px);
@@ -929,6 +961,87 @@ a {
 .site-footer a {
   color: var(--lime);
   text-underline-offset: 5px;
+}
+
+.photo-chaos {
+  position: fixed;
+  z-index: 80;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.chaos-photo {
+  position: absolute;
+  bottom: -180px;
+  left: var(--start-x);
+  width: clamp(80px, 11vw, 145px);
+  aspect-ratio: 1;
+  border: 3px solid var(--ink);
+  background: white;
+  box-shadow: 5px 6px 0 rgb(28 27 25 / 0.75);
+  object-fit: cover;
+  opacity: 0;
+}
+
+.photo-chaos.is-running .chaos-photo {
+  animation: photo-float 3.7s cubic-bezier(0.18, 0.7, 0.3, 1) both;
+}
+
+.chaos-japan {
+  --start-x: 5vw;
+  --drift: 9vw;
+  --tilt: -9deg;
+}
+
+.chaos-santorini {
+  --start-x: 24vw;
+  --drift: -7vw;
+  --tilt: 7deg;
+  animation-delay: 0.18s !important;
+}
+
+.chaos-noodles {
+  --start-x: 45vw;
+  --drift: 8vw;
+  --tilt: -5deg;
+  animation-delay: 0.36s !important;
+}
+
+.chaos-burger {
+  --start-x: 66vw;
+  --drift: -6vw;
+  --tilt: 8deg;
+  animation-delay: 0.54s !important;
+}
+
+.chaos-lunch {
+  --start-x: 84vw;
+  --drift: -10vw;
+  --tilt: -7deg;
+  animation-delay: 0.72s !important;
+}
+
+@keyframes photo-float {
+  0% {
+    bottom: -180px;
+    opacity: 0;
+    transform: translateX(0) rotate(var(--tilt)) scale(0.82);
+  }
+  12%,
+  78% {
+    opacity: 1;
+  }
+  55% {
+    transform: translateX(var(--drift)) rotate(calc(var(--tilt) * -0.55))
+      scale(1);
+  }
+  100% {
+    bottom: calc(100vh + 40px);
+    opacity: 0;
+    transform: translateX(calc(var(--drift) * 1.5)) rotate(var(--tilt))
+      scale(0.92);
+  }
 }
 
 .sr-only {

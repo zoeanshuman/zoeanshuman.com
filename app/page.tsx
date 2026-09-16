@@ -1,6 +1,7 @@
 'use client';
 
 import { ArrowUpRight, Mail, Sparkles } from 'lucide-react';
+import { useState } from 'react';
 
 const projects = [
   {
@@ -24,6 +25,14 @@ const projects = [
 ];
 
 export default function Home() {
+  const [chaosRunning, setChaosRunning] = useState(false);
+
+  function startPhotoChaos() {
+    setChaosRunning(false);
+    window.setTimeout(() => setChaosRunning(true), 10);
+    window.setTimeout(() => setChaosRunning(false), 4200);
+  }
+
   return (
     <main className="site-shell">
       <header className="site-header">
@@ -330,14 +339,24 @@ export default function Home() {
             loading="lazy"
           />
         </div>
-        <a className="contact-link" href="mailto:zoeanshuman@gmail.com">
-          <Mail aria-hidden="true" />
-          <span>
-            Want to say hi?
-            <b>zoeanshuman@gmail.com</b>
-          </span>
-          <ArrowUpRight aria-hidden="true" />
-        </a>
+        <div className="closing-actions">
+          <button
+            type="button"
+            className="chaos-button"
+            onClick={startPhotoChaos}
+          >
+            <Sparkles aria-hidden="true" />
+            <span>PRESS FOR ZOE CHAOS</span>
+          </button>
+          <a className="contact-link" href="mailto:zoeanshuman@gmail.com">
+            <Mail aria-hidden="true" />
+            <span>
+              Want to say hi?
+              <b>zoeanshuman@gmail.com</b>
+            </span>
+            <ArrowUpRight aria-hidden="true" />
+          </a>
+        </div>
       </section>
 
       <footer className="site-footer">
@@ -345,6 +364,41 @@ export default function Home() {
         <a href="mailto:zoeanshuman@gmail.com">ZOEANSHUMAN@GMAIL.COM</a>
         <a href="#top">BACK TO TOP ↑</a>
       </footer>
+
+      <div
+        className={`photo-chaos ${chaosRunning ? 'is-running' : ''}`}
+        aria-hidden="true"
+      >
+        <img
+          className="chaos-photo chaos-japan"
+          src="/photos/japan.jpg"
+          alt=""
+        />
+        <img
+          className="chaos-photo chaos-santorini"
+          src="/photos/santorini.jpg"
+          alt=""
+        />
+        <img
+          className="chaos-photo chaos-noodles"
+          src="/photos/food-noodles.jpg"
+          alt=""
+        />
+        <img
+          className="chaos-photo chaos-burger"
+          src="/photos/food-burger.jpg"
+          alt=""
+        />
+        <img
+          className="chaos-photo chaos-lunch"
+          src="/photos/food-plate.jpg"
+          alt=""
+        />
+      </div>
+
+      <p className="sr-only" aria-live="polite">
+        {chaosRunning ? 'Zoe’s photo chaos is floating across the page.' : ''}
+      </p>
     </main>
   );
 }
