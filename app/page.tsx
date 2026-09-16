@@ -1,7 +1,6 @@
 'use client';
 
-import { ArrowUpRight, PawPrint, Play, Sparkles } from 'lucide-react';
-import { useState } from 'react';
+import { ArrowUpRight, Mail, Sparkles } from 'lucide-react';
 
 const projects = [
   {
@@ -25,14 +24,6 @@ const projects = [
 ];
 
 export default function Home() {
-  const [paradeRunning, setParadeRunning] = useState(false);
-
-  function startParade() {
-    setParadeRunning(false);
-    window.setTimeout(() => setParadeRunning(true), 10);
-    window.setTimeout(() => setParadeRunning(false), 4300);
-  }
-
   return (
     <main className="site-shell">
       <header className="site-header">
@@ -314,40 +305,46 @@ export default function Home() {
           <br />
           More snacks.
         </h2>
-        <button type="button" className="paw-button" onClick={startParade}>
-          <PawPrint aria-hidden="true" />
-          <span>PRESS FOR ZOE CHAOS</span>
-        </button>
+        <div
+          className="mini-photo-row"
+          aria-label="A few more moments from Zoe's camera roll"
+        >
+          <img
+            src="/photos/japan.jpg"
+            alt="Zoe exploring Japan"
+            loading="lazy"
+          />
+          <img
+            src="/photos/santorini.jpg"
+            alt="Zoe in Santorini at sunset"
+            loading="lazy"
+          />
+          <img
+            src="/photos/food-noodles.jpg"
+            alt="Zoe enjoying noodles"
+            loading="lazy"
+          />
+          <img
+            src="/photos/food-plate.jpg"
+            alt="Zoe giving lunch two thumbs up"
+            loading="lazy"
+          />
+        </div>
+        <a className="contact-link" href="mailto:zoeanshuman@gmail.com">
+          <Mail aria-hidden="true" />
+          <span>
+            Want to say hi?
+            <b>zoeanshuman@gmail.com</b>
+          </span>
+          <ArrowUpRight aria-hidden="true" />
+        </a>
       </section>
 
       <footer className="site-footer">
         <span>ZOE ANSHUMAN</span>
-        <span>MADE WITH QUESTIONS + CURIOSITY</span>
+        <a href="mailto:zoeanshuman@gmail.com">ZOEANSHUMAN@GMAIL.COM</a>
         <a href="#top">BACK TO TOP ↑</a>
       </footer>
-
-      <div
-        className={`passion-parade ${paradeRunning ? 'is-running' : ''}`}
-        aria-hidden="true"
-      >
-        <span className="parade-item parade-tennis">🎾</span>
-        <span className="parade-item parade-racing">
-          🏎️<b>44</b>
-        </span>
-        <span className="parade-item parade-cricket">🏏</span>
-        <span className="parade-item parade-travel">✈️</span>
-        <span className="parade-item parade-food">🍜</span>
-        <span className="parade-item parade-film">
-          <Play />
-        </span>
-        <span className="parade-item parade-pet">ᓚᘏᗢ</span>
-      </div>
-
-      <p className="sr-only" aria-live="polite">
-        {paradeRunning
-          ? 'Zoe’s favourite things are flying across the page.'
-          : ''}
-      </p>
     </main>
   );
 }
