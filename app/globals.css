@@ -926,29 +926,6 @@ a {
   margin-left: 10px;
 }
 
-.mini-photo-row {
-  display: flex;
-  align-items: flex-end;
-  gap: 12px;
-  margin: 45px 0;
-}
-
-.mini-photo-row img {
-  width: clamp(74px, 9vw, 130px);
-  aspect-ratio: 1;
-  border: 3px solid var(--ink);
-  box-shadow: 4px 5px 0 var(--ink);
-  object-fit: cover;
-}
-
-.mini-photo-row img:nth-child(odd) {
-  transform: rotate(-4deg);
-}
-
-.mini-photo-row img:nth-child(even) {
-  transform: rotate(4deg);
-}
-
 .site-footer {
   display: flex;
   align-items: center;

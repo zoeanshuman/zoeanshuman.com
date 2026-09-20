@@ -314,31 +314,6 @@ export default function Home() {
           <br />
           More snacks.
         </h2>
-        <div
-          className="mini-photo-row"
-          aria-label="A few more moments from Zoe's camera roll"
-        >
-          <img
-            src="/photos/japan.jpg"
-            alt="Zoe exploring Japan"
-            loading="lazy"
-          />
-          <img
-            src="/photos/santorini.jpg"
-            alt="Zoe in Santorini at sunset"
-            loading="lazy"
-          />
-          <img
-            src="/photos/food-noodles.jpg"
-            alt="Zoe enjoying noodles"
-            loading="lazy"
-          />
-          <img
-            src="/photos/food-plate.jpg"
-            alt="Zoe giving lunch two thumbs up"
-            loading="lazy"
-          />
-        </div>
         <div className="closing-actions">
           <button
             type="button"
