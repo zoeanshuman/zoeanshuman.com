@@ -6,11 +6,11 @@ import { useEffect, useState } from 'react';
 const travelSlides = [
   {
     src: '/photos/santorini.jpg',
-    alt: 'Zoe sitting in the sunshine overlooking the sea in Santorini',
+    alt: 'Zoë sitting in the sunshine overlooking the sea in Santorini',
   },
   {
     src: '/photos/japan.jpg',
-    alt: 'Zoe visiting Owakudani in Japan',
+    alt: 'Zoë visiting Owakudani in Japan',
   },
 ];
 
@@ -56,8 +56,8 @@ export default function Home() {
   return (
     <main className="site-shell">
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Zoe Anshuman, home">
-          Zoe Anshuman
+        <a className="brand" href="#top" aria-label="Zoë Anshuman, home">
+          Zoë Anshuman
         </a>
         <nav aria-label="Main navigation">
           <a href="#film">Film</a>
@@ -71,7 +71,7 @@ export default function Home() {
 
       <section className="film-hero" id="top">
         <div className="film-title" id="film">
-          <p>HI, I&apos;M ZOE — STUDENT, MAKER, VERY CURIOUS PERSON</p>
+          <p>HI, I&apos;M ZOË — STUDENT, MAKER, VERY CURIOUS PERSON</p>
           <h1>
             WATCH MY
             <br />
@@ -83,7 +83,7 @@ export default function Home() {
         <div className="film-frame">
           <iframe
             src="https://www.youtube.com/embed/eHAJEwHEBzE?rel=0"
-            title="Through Their Eyes — a short film by Zoe Anshuman"
+            title="Through Their Eyes — a short film by Zoë Anshuman"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           />
@@ -213,7 +213,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mindset-banner" aria-label="Zoe's making mindset">
+      <section className="mindset-banner" aria-label="Zoë's making mindset">
         <p>MY FAVOURITE KIND OF TROUBLE:</p>
         <h2>
           TURNING <span>“WHAT IF?”</span>
@@ -262,7 +262,7 @@ export default function Home() {
           <article className="photo-card travel-main">
             <img
               src="/photos/japan.jpg"
-              alt="Zoe visiting Owakudani in Japan"
+              alt="Zoë visiting Owakudani in Japan"
               loading="lazy"
             />
             <div>
@@ -311,19 +311,19 @@ export default function Home() {
             <img
               className="food-one"
               src="/photos/food-noodles.jpg"
-              alt="Zoe eating a very long noodle"
+              alt="Zoë eating a very long noodle"
               loading="lazy"
             />
             <img
               className="food-two"
               src="/photos/food-burger.jpg"
-              alt="Zoe investigating a giant burger"
+              alt="Zoë investigating a giant burger"
               loading="lazy"
             />
             <img
               className="food-three"
               src="/photos/food-plate.jpg"
-              alt="Zoe giving a meal two thumbs up"
+              alt="Zoë giving a meal two thumbs up"
               loading="lazy"
             />
             <span className="yum-sticker">YUM × 3</span>
@@ -347,13 +347,13 @@ export default function Home() {
             onClick={startPhotoChaos}
           >
             <Sparkles aria-hidden="true" />
-            <span>PRESS FOR ZOE CHAOS</span>
+            <span>PRESS FOR ZOË CHAOS</span>
           </button>
         </div>
       </section>
 
       <footer className="site-footer">
-        <span>ZOE ANSHUMAN</span>
+        <span>ZOË ANSHUMAN</span>
         <a href="#top">BACK TO TOP ↑</a>
       </footer>
 
@@ -389,7 +389,7 @@ export default function Home() {
       </div>
 
       <p className="sr-only" aria-live="polite">
-        {chaosRunning ? 'Zoe’s photo chaos is floating across the page.' : ''}
+        {chaosRunning ? 'Zoë’s photo chaos is floating across the page.' : ''}
       </p>
     </main>
   );
