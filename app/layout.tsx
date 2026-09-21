@@ -2,10 +2,14 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://zoe-anshuman.zoeanshuman.chatgpt.site'),
+  metadataBase: new URL('https://www.zoeanshuman.com'),
   title: 'Zoë Anshuman — student maker',
   description:
     'Apps, websites, and films by Zoë Anshuman — small things made to solve real problems.',
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+  },
   openGraph: {
     title: 'Zoë Anshuman',
     description: 'Small things that solve real problems.',

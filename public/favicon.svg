@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="32" fill="#f6c77f"/>
-  <circle cx="32" cy="32" r="27" fill="none" stroke="#14242b" stroke-width="3"/>
-  <text x="32" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="800" fill="#14242b">ZA</text>
+  <rect width="64" height="64" rx="14" fill="#121212"/>
+  <path d="M8 12L55 8L58 54L11 58Z" fill="#4058ff"/>
+  <path d="M11 9L53 12L50 55L8 51Z" fill="#ff6545" stroke="#121212" stroke-width="3"/>
+  <path d="M18 19H45L20 45H47" fill="none" stroke="#d5ff3f" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M50 7V15M46 11H54" stroke="#ffd85e" stroke-width="3" stroke-linecap="round"/>
 </svg>
