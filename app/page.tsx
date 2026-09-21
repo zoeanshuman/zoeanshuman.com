@@ -1,7 +1,18 @@
 'use client';
 
-import { ArrowUpRight, Mail, Sparkles } from 'lucide-react';
-import { useState } from 'react';
+import { ArrowUpRight, Sparkles } from 'lucide-react';
+import { useEffect, useState } from 'react';
+
+const travelSlides = [
+  {
+    src: '/photos/santorini.jpg',
+    alt: 'Zoe sitting in the sunshine overlooking the sea in Santorini',
+  },
+  {
+    src: '/photos/japan.jpg',
+    alt: 'Zoe visiting Owakudani in Japan',
+  },
+];
 
 const projects = [
   {
@@ -26,6 +37,15 @@ const projects = [
 
 export default function Home() {
   const [chaosRunning, setChaosRunning] = useState(false);
+  const [travelPhotoIndex, setTravelPhotoIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setTravelPhotoIndex((current) => (current + 1) % travelSlides.length);
+    }, 4500);
+
+    return () => window.clearInterval(timer);
+  }, []);
 
   function startPhotoChaos() {
     setChaosRunning(false);
@@ -104,10 +124,23 @@ export default function Home() {
 
       <section className="about-section" id="about">
         <div className="about-photo">
-          <img
-            src="/photos/santorini.jpg"
-            alt="Zoe sitting in the sunshine overlooking the sea in Santorini"
-          />
+          {travelSlides.map((slide, index) => (
+            <img
+              className={index === travelPhotoIndex ? 'is-active' : ''}
+              src={slide.src}
+              alt={slide.alt}
+              aria-hidden={index !== travelPhotoIndex}
+              key={slide.src}
+            />
+          ))}
+          <div className="travel-dots" aria-hidden="true">
+            {travelSlides.map((slide, index) => (
+              <span
+                className={index === travelPhotoIndex ? 'is-active' : ''}
+                key={slide.src}
+              />
+            ))}
+          </div>
           <span className="photo-tag tag-one">15 countries &amp; counting</span>
           <span className="photo-tag tag-two">professional question asker</span>
         </div>
@@ -131,23 +164,16 @@ export default function Home() {
           <p>THE FILM DIDN&apos;T END AT THE CREDITS</p>
           <h2 id="animal-story-title">I kept going.</h2>
           <p>
-            First I wanted people to notice community animals. Then I wanted to
-            help people understand what to do. Then I built a way to act.
+            The film made me want to keep helping community animals, so I
+            started coding tools that help people understand what to do—and
+            act.
           </p>
         </div>
 
         <div className="animal-path">
-          <div className="path-start">
-            <span>01</span>
-            <b>Through Their Eyes</b>
-            <small>notice</small>
-          </div>
-          <span className="path-arrow" aria-hidden="true">
-            →
-          </span>
           <article className="animal-card voice-card">
             <div>
-              <span>02 · UNDERSTAND</span>
+              <span>01 · UNDERSTAND</span>
               <b aria-hidden="true">🐾</b>
             </div>
             <h3>Voice for the Voiceless</h3>
@@ -168,7 +194,7 @@ export default function Home() {
           </span>
           <article className="animal-card petzpal-card">
             <div>
-              <span>03 · ACT</span>
+              <span>02 · ACT</span>
               <b aria-hidden="true">✦</b>
             </div>
             <h3>PetzPal</h3>
@@ -323,20 +349,11 @@ export default function Home() {
             <Sparkles aria-hidden="true" />
             <span>PRESS FOR ZOE CHAOS</span>
           </button>
-          <a className="contact-link" href="mailto:zoeanshuman@gmail.com">
-            <Mail aria-hidden="true" />
-            <span>
-              Want to say hi?
-              <b>zoeanshuman@gmail.com</b>
-            </span>
-            <ArrowUpRight aria-hidden="true" />
-          </a>
         </div>
       </section>
 
       <footer className="site-footer">
         <span>ZOE ANSHUMAN</span>
-        <a href="mailto:zoeanshuman@gmail.com">ZOEANSHUMAN@GMAIL.COM</a>
         <a href="#top">BACK TO TOP ↑</a>
       </footer>
 
