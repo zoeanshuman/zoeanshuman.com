@@ -651,8 +651,25 @@ a {
 }
 
 .obsessions-intro h2 {
-  max-width: 980px;
-  color: var(--blue);
+  max-width: 760px;
+  margin: 18px 0 0;
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.25rem, 2.4vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.obsessions-intro > p {
+  max-width: 1100px;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: clamp(2.6rem, 6.2vw, 6.8rem);
+  font-weight: 950;
+  letter-spacing: -0.07em;
+  line-height: 0.88;
+  text-transform: none;
 }
 
 .photo-wall {
@@ -684,6 +701,7 @@ a {
 
 .photo-card > div {
   position: absolute;
+  z-index: 2;
   right: 12px;
   bottom: 12px;
   left: 12px;
@@ -810,7 +828,51 @@ a {
 }
 
 .cricket-card img {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
   object-position: center top;
+  transform: scale(1.045);
+  transition:
+    opacity 850ms ease,
+    clip-path 950ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1100ms ease;
+}
+
+.cricket-card img.is-active {
+  opacity: 1;
+  clip-path: inset(0);
+  transform: scale(1);
+}
+
+.cricket-card:hover img.is-active {
+  transform: scale(1.035);
+}
+
+.photo-credit {
+  position: absolute;
+  z-index: 3;
+  top: 14px;
+  left: 14px;
+  padding: 6px 8px;
+  border: 2px solid var(--ink);
+  background: rgb(255 255 255 / 88%);
+  color: var(--ink);
+  font-family: 'Courier New', monospace;
+  font-size: 0.6rem;
+  font-weight: 900;
+  opacity: 0;
+  pointer-events: none;
+  text-decoration: none;
+  transform: translateY(-7px);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.photo-credit.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .food-cluster {

@@ -14,6 +14,17 @@ const travelSlides = [
   },
 ];
 
+const cricketSlides = [
+  {
+    src: '/photos/cricket-virat.jpg',
+    alt: 'Virat Kohli raising his bat for India',
+  },
+  {
+    src: '/photos/cricket-women.jpg',
+    alt: "India's women's cricket team celebrating with the World Cup trophy",
+  },
+];
+
 const projects = [
   {
     kicker: 'say it back',
@@ -38,13 +49,23 @@ const projects = [
 export default function Home() {
   const [chaosRunning, setChaosRunning] = useState(false);
   const [travelPhotoIndex, setTravelPhotoIndex] = useState(0);
+  const [cricketPhotoIndex, setCricketPhotoIndex] = useState(0);
 
   useEffect(() => {
     const timer = window.setInterval(() => {
       setTravelPhotoIndex((current) => (current + 1) % travelSlides.length);
     }, 4500);
 
-    return () => window.clearInterval(timer);
+    const cricketTimer = window.setInterval(() => {
+      setCricketPhotoIndex((current) =>
+        (current + 1) % cricketSlides.length,
+      );
+    }, 5200);
+
+    return () => {
+      window.clearInterval(timer);
+      window.clearInterval(cricketTimer);
+    };
   }, []);
 
   function startPhotoChaos() {
@@ -292,15 +313,28 @@ export default function Home() {
           </article>
 
           <article className="photo-card cricket-card">
-            <img
-              src="/photos/cricket-virat.jpg"
-              alt="Virat Kohli raising his bat for India"
-              loading="lazy"
-            />
+            {cricketSlides.map((slide, index) => (
+              <img
+                className={index === cricketPhotoIndex ? 'is-active' : ''}
+                src={slide.src}
+                alt={slide.alt}
+                aria-hidden={index !== cricketPhotoIndex}
+                loading="lazy"
+                key={slide.src}
+              />
+            ))}
             <div>
               <span>CRICKET</span>
               <b>Virat + the Indian women&apos;s team</b>
             </div>
+            <a
+              className={`photo-credit ${cricketPhotoIndex === 1 ? 'is-visible' : ''}`}
+              href="https://commons.wikimedia.org/wiki/File:India_women%27s_national_cricket_team_poses_with_the_2025_Women%27s_Cricket_World_Cup_trophy_at_7,_Lok_Kalyan_Marg.jpg"
+              target="_blank"
+              rel="noreferrer"
+            >
+              PMO India · GODL-India
+            </a>
           </article>
 
           <div className="food-cluster">
