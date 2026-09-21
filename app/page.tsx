@@ -95,8 +95,8 @@ export default function Home() {
             <h2>A street animal is someone&apos;s almost-pet.</h2>
           </div>
           <p>
-            I wrote and directed this with two friends. It started two years of
-            making things for community animals.
+            I wrote and directed this with two friends a year ago. It started
+            me making things for community animals.
           </p>
         </div>
       </section>
