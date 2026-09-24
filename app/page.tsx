@@ -1,18 +1,7 @@
 'use client';
 
-import { ArrowUpRight, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Plane, Sparkles, UtensilsCrossed } from 'lucide-react';
 import { useEffect, useState } from 'react';
-
-const travelSlides = [
-  {
-    src: '/photos/santorini.jpg',
-    alt: 'Zoë sitting in the sunshine overlooking the sea in Santorini',
-  },
-  {
-    src: '/photos/japan.jpg',
-    alt: 'Zoë visiting Owakudani in Japan',
-  },
-];
 
 const cricketSlides = [
   {
@@ -48,14 +37,9 @@ const projects = [
 
 export default function Home() {
   const [chaosRunning, setChaosRunning] = useState(false);
-  const [travelPhotoIndex, setTravelPhotoIndex] = useState(0);
   const [cricketPhotoIndex, setCricketPhotoIndex] = useState(0);
 
   useEffect(() => {
-    const timer = window.setInterval(() => {
-      setTravelPhotoIndex((current) => (current + 1) % travelSlides.length);
-    }, 4500);
-
     const cricketTimer = window.setInterval(() => {
       setCricketPhotoIndex((current) =>
         (current + 1) % cricketSlides.length,
@@ -63,7 +47,6 @@ export default function Home() {
     }, 5200);
 
     return () => {
-      window.clearInterval(timer);
       window.clearInterval(cricketTimer);
     };
   }, []);
@@ -145,23 +128,11 @@ export default function Home() {
 
       <section className="about-section" id="about">
         <div className="about-photo">
-          {travelSlides.map((slide, index) => (
-            <img
-              className={index === travelPhotoIndex ? 'is-active' : ''}
-              src={slide.src}
-              alt={slide.alt}
-              aria-hidden={index !== travelPhotoIndex}
-              key={slide.src}
-            />
-          ))}
-          <div className="travel-dots" aria-hidden="true">
-            {travelSlides.map((slide, index) => (
-              <span
-                className={index === travelPhotoIndex ? 'is-active' : ''}
-                key={slide.src}
-              />
-            ))}
-          </div>
+          <img
+            className="is-active"
+            src="/photos/santorini.jpg"
+            alt="Zoë sitting in the sunshine overlooking the sea in Santorini"
+          />
           <span className="photo-tag tag-one">15 countries &amp; counting</span>
           <span className="photo-tag tag-two">professional question asker</span>
         </div>
@@ -280,15 +251,14 @@ export default function Home() {
         </div>
 
         <div className="photo-wall">
-          <article className="photo-card travel-main">
-            <img
-              src="/photos/japan.jpg"
-              alt="Zoë visiting Owakudani in Japan"
-              loading="lazy"
-            />
-            <div>
-              <span>TRAVEL</span>
-              <b>15 countries. Next?</b>
+          <article className="travel-main travel-stamp-card">
+            <Plane aria-hidden="true" />
+            <p>15</p>
+            <h3>countries &amp; counting</h3>
+            <div className="travel-stamps" aria-hidden="true">
+              <span>PASSPORT READY</span>
+              <span>NEXT?</span>
+              <span>✦ GO ✦</span>
             </div>
           </article>
 
@@ -329,11 +299,11 @@ export default function Home() {
             </div>
             <a
               className={`photo-credit ${cricketPhotoIndex === 1 ? 'is-visible' : ''}`}
-              href="https://commons.wikimedia.org/wiki/File:India_women%27s_national_cricket_team_poses_with_the_2025_Women%27s_Cricket_World_Cup_trophy_at_7,_Lok_Kalyan_Marg.jpg"
+              href="https://commons.wikimedia.org/wiki/File:Team_india.jpg"
               target="_blank"
               rel="noreferrer"
             >
-              PMO India · GODL-India
+              TamilSibi · CC0
             </a>
           </article>
 
@@ -342,25 +312,14 @@ export default function Home() {
               <span>VERY SERIOUS RESEARCH</span>
               <h3>What should we eat?</h3>
             </div>
-            <img
-              className="food-one"
-              src="/photos/food-noodles.jpg"
-              alt="Zoë eating a very long noodle"
-              loading="lazy"
-            />
-            <img
-              className="food-two"
-              src="/photos/food-burger.jpg"
-              alt="Zoë investigating a giant burger"
-              loading="lazy"
-            />
-            <img
-              className="food-three"
-              src="/photos/food-plate.jpg"
-              alt="Zoë giving a meal two thumbs up"
-              loading="lazy"
-            />
-            <span className="yum-sticker">YUM × 3</span>
+            <UtensilsCrossed className="food-icon" aria-hidden="true" />
+            <div className="food-menu" aria-label="Favourite foods">
+              <span>NOODLES</span>
+              <span>BURGERS</span>
+              <span>DESSERT FIRST?</span>
+              <span>YES.</span>
+            </div>
+            <span className="yum-sticker">YUM × ∞</span>
           </div>
         </div>
       </section>
@@ -395,35 +354,15 @@ export default function Home() {
         className={`photo-chaos ${chaosRunning ? 'is-running' : ''}`}
         aria-hidden="true"
       >
-        <img
-          className="chaos-photo chaos-japan"
-          src="/photos/japan.jpg"
-          alt=""
-        />
-        <img
-          className="chaos-photo chaos-santorini"
-          src="/photos/santorini.jpg"
-          alt=""
-        />
-        <img
-          className="chaos-photo chaos-noodles"
-          src="/photos/food-noodles.jpg"
-          alt=""
-        />
-        <img
-          className="chaos-photo chaos-burger"
-          src="/photos/food-burger.jpg"
-          alt=""
-        />
-        <img
-          className="chaos-photo chaos-lunch"
-          src="/photos/food-plate.jpg"
-          alt=""
-        />
+        <span className="chaos-card chaos-one">WHAT IF?</span>
+        <span className="chaos-card chaos-two">15 COUNTRIES!</span>
+        <span className="chaos-card chaos-three">ONE MORE BALL?</span>
+        <span className="chaos-card chaos-four">44!</span>
+        <span className="chaos-card chaos-five">YUM × ∞</span>
       </div>
 
       <p className="sr-only" aria-live="polite">
-        {chaosRunning ? 'Zoë’s photo chaos is floating across the page.' : ''}
+        {chaosRunning ? 'Zoë’s idea chaos is floating across the page.' : ''}
       </p>
     </main>
   );
